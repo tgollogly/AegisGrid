@@ -49,6 +49,48 @@ https://github.com/tgollogly/AegisGrid
 
 #OpenSource #IoT #CyberSecurity #Python
 
+---
+
+## Post — food resilience & cold-chain defence (copy and edit)
+
+Use this if you want to explain **why now** — keep tone **calm and factual**, not panic. Do **not** claim AegisGrid secures the national food supply or prevents shortages.
+
+**Attach:** `assets/aegisgrid-hero-banner.jpg`
+
+---
+
+Like many people, I’ve seen advice to **think seriously about food at home** — and at the same time we keep hearing how **food and cold storage depend on connected tech** that can be **targeted** (ransomware, tampering, weak default passwords on fridge gateways and shop controllers).
+
+When refrigeration or monitoring fails — whether from an attack or misconfiguration — **food spoils**, small shops lose stock, and families who’ve tried to prepare sensibly can still be hurt. **Enterprise security tools are expensive.** That shouldn’t mean only big chains get basic protection.
+
+So I built and released **AegisGrid** **voluntarily** — **free, MIT Licence, no payment to me, no product sales**, shared in my own time:
+
+→ **Local** control & audit on refrigeration/IoT gateways (offline-first)  
+→ Hashed operator tokens, audit logs, temperature safety modelling (1°C–8°C band)  
+→ Signed file checks & rollback if software is tampered with  
+→ **No cloud AI** — runs on your gateway  
+
+It’s a **reference project** with tests — **not** certified safety hardware and **not** “unhackable.” It’s my contribution so **anyone** — corner shops, community kitchens, labs, tinkerers — can **learn and adapt** patterns that **help defend** what they already rely on, alongside proper physical safeguards.
+
+If it helps one small site keep cold storage **trustworthy**, that’s the point: **defend each other** with tools we can actually afford.
+
+**QUICKSTART (~5 min):** in the repo  
+https://github.com/tgollogly/AegisGrid  
+
+“As is” · Disclaimer in repo · MIT Licence
+
+#OpenSource #IoT #CyberSecurity #FoodSecurity #Python #UKTech #FreeSoftware
+
+---
+
+### Tone check before you post
+
+| OK to say | Avoid |
+|-----------|--------|
+| Food supply **depends on** cold chain; connected kit **can be targeted** | “The food system was hacked” unless you cite a **specific verified source** |
+| You’re helping **small operators** with **free** building blocks | “This stops hackers” / “fixes the stockpile crisis” |
+| **Voluntary**, **unpaid**, personal contribution | Implying government endorsement or emergency official role |
+
 ## Voluntary / benefits-friendly wording (UK)
 
 This post is written to show:
