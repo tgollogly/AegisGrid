@@ -1,14 +1,9 @@
 
-```
-     _                _       ____       _     _ 
-    / \   ___ ___  __| | __ _|  _ \ __ _(_) __| |
-   / _ \ / __/ _ \/ _` |/ _` | |_) / _` | |/ _` |
-  / ___ \ (_|  __/ (_| | (_| |  __/ (_| | | (_| |
- /_/   \_\___\___|\__,_|\__, |_|   \__,_|_|\__,_|
-                        |___/                    
-```
+![AegisGrid Hero Banner — free MIT open source local IoT refrigeration control](assets/aegisgrid-hero-banner.jpg)
 
 # AegisGrid
+
+**Hero banner (LinkedIn & docs):** [`assets/aegisgrid-hero-banner.jpg`](assets/aegisgrid-hero-banner.jpg) · Guide: [`LINKEDIN.md`](LINKEDIN.md) · Assets: [`assets/README.md`](assets/README.md)
 
 **Free, open-source (MIT)** local control and audit patterns for IoT refrigeration gateways — DuckDB storage, operator tokens, temperature safety bounds, and signed file integrity. **No cloud AI. No paid tier. No account required.**
 
