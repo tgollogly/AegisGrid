@@ -3,4 +3,8 @@ __pycache__/
 .venv/
 *.duckdb
 .aegis_backup/
+.aegis_operator_token
 .pytest_cache/
+*.egg-info/
+dist/
+build/

@@ -10,6 +10,12 @@ dependencies = [
     "duckdb>=1.1.0,<2.0.0",
 ]
 
+[tool.setuptools]
+py-modules = ["core", "cli"]
+
+[project.scripts]
+aegisgrid = "cli:main"
+
 [project.optional-dependencies]
 dev = ["pytest>=8.0.0,<9.0.0"]
 

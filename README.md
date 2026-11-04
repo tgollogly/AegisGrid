@@ -10,7 +10,15 @@
 
 # AegisGrid
 
-**AegisGrid** is a production-oriented, fully local control plane for IoT refrigeration appliances. It combines DuckDB-backed threat intelligence, cryptographic access control, hardware-style temperature watchdog logic, and signed manifest integrity checking—without any external AI or cloud inference dependencies at runtime.
+**Free, open-source (MIT)** local control and audit patterns for IoT refrigeration gateways — DuckDB storage, operator tokens, temperature safety bounds, and signed file integrity. **No cloud AI. No paid tier. No account required.**
+
+| | |
+|---|---|
+| **New here?** | Start with **[QUICKSTART.md](QUICKSTART.md)** (~5 min) |
+| **Sharing the project?** | See **[LINKEDIN.md](LINKEDIN.md)** (accurate wording + disclaimer links) |
+| **Legal** | [LICENSE](LICENSE) · [DISCLAIMER.md](DISCLAIMER.md) |
+
+> **Honest scope:** AegisGrid is a **reference implementation** with automated tests. It **helps** with local access control, auditing, and tamper response modelling; it does **not** guarantee that attackers cannot compromise your systems, and it is **not** a substitute for certified hardware safety or professional engineering sign-off.
 
 ---
 
@@ -18,86 +26,99 @@
 
 | Capability | Description |
 |------------|-------------|
+| **CLI (`aegisgrid`)** | `init`, `status`, `temperature set`, `threat`, `integrity check`, `manifest sign` |
 | **Local DuckDB engine** | Threat cache, hardware state ledger, and audit log in `aegis_local.duckdb` |
 | **Temperature safety** | Hard limits **1°C – 8°C** with watchdog override of compressor state |
 | **Access control** | SHA-256 hashed tokens; unauthorized commands are rejected and audited |
-| **Integrity & lockdown** | HMAC-signed manifest verification, automatic rollback, network socket lockdown on tamper |
-| **Offline-first** | No network required for normal operation; lockdown blocks sockets when policy demands |
+| **Integrity & lockdown** | HMAC-signed manifest verification, rollback from `.aegis_backup/`, socket lockdown on tamper |
+| **Offline-first** | No network required for normal operation |
 
 ---
 
 ## Requirements
 
 - Python **3.11+**
-- Linux or embedded Linux target (developed and tested on generic Linux)
+- Linux or embedded Linux (developed on generic Linux)
 
 ---
 
 ## Installation
 
-1. **Clone or copy** this repository to your appliance gateway or development machine.
+```bash
+git clone https://github.com/tgollogly/AegisGrid.git
+cd AegisGrid
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+pip install -e .    # installs `aegisgrid` on your PATH
+```
 
-2. **Create a virtual environment** (recommended):
+Optional production secret for manifest signing:
 
-   ```bash
-   python3 -m venv .venv
-   source .venv/bin/activate
-   ```
-
-3. **Install dependencies**:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-   For development (includes pytest):
-
-   ```bash
-   pip install -e ".[dev]"
-   ```
-
-4. **Optional — manifest HMAC key** (production):
-
-   ```bash
-   export AEGIS_MANIFEST_HMAC_KEY="$(openssl rand -hex 32)"
-   ```
-
-   The default development key is embedded only for local testing; change it before deployment.
+```bash
+export AEGIS_MANIFEST_HMAC_KEY="$(openssl rand -hex 32)"
+```
 
 ---
 
-## Quick start
+## Quick start (CLI)
+
+```bash
+aegisgrid init
+aegisgrid status
+aegisgrid temperature set --value 4.0
+aegisgrid threat add --indicator 203.0.113.1 --type blocked_ip --severity 7
+aegisgrid threat list
+```
+
+Try the guided demo:
+
+```bash
+bash examples/first_run.sh
+```
+
+Full walkthrough: **[QUICKSTART.md](QUICKSTART.md)**
+
+### Quick start (Python API)
 
 ```python
 from core import AegisGrid
 
-grid = AegisGrid(root_dir=".")
-token = grid.generate_token()
-grid.register_operator_token(token)
-
-result = grid.set_temperature(token, requested_c=4.0)
-print(result.applied_c, result.watchdog_override)
-
-threats = grid.query_threats(min_severity=5)
-grid.close()
+with AegisGrid(root_dir=".") as grid:
+    token = grid.generate_token()
+    grid.register_operator_token(token)
+    print(grid.set_temperature(token, requested_c=4.0))
 ```
 
-Run the module entrypoint:
+---
+
+## CLI reference
+
+| Command | Purpose |
+|---------|---------|
+| `aegisgrid init` | Create DB + operator token (`.aegis_operator_token`) |
+| `aegisgrid status` | Lockdown flag + latest temperature/compressor state |
+| `aegisgrid token create` | Add another authorized token (prints once) |
+| `aegisgrid temperature set --value °C` | Authorized set (watchdog enforces 1–8°C) |
+| `aegisgrid threat add` / `list` | Local DuckDB threat cache |
+| `aegisgrid manifest sign <files...>` | Build signed `aegis_manifest.json` |
+| `aegisgrid integrity check` | Verify hashes; rollback + lockdown on tamper |
+
+Global option: `--root /path/to/appliance` (default: current directory).
 
 ```bash
-python core.py
+aegisgrid --help
 ```
 
 ---
 
 ## Architecture overview
 
-AegisGrid assumes a **zero-trust local boundary**: the appliance gateway is the trust anchor. External networks are not required for control decisions; when integrity fails, the system ** fails closed** on networking.
+AegisGrid uses a **local trust boundary**: the gateway hosts policy and data. When integrity verification fails, networking ** fails closed** (new sockets blocked).
 
 ```mermaid
 flowchart TB
     subgraph LocalBoundary["Zero-trust local boundary"]
-        UI[Operator / Local API]
+        UI[Operator / CLI]
         AG[AegisGrid core]
         WD[Hardware watchdog model]
         DB[(DuckDB aegis_local.duckdb)]
@@ -113,60 +134,36 @@ flowchart TB
     WD -->|1°C–8°C clamp| Compressor[Compressor safe default]
 ```
 
-**Data stores (DuckDB tables)**
-
-- `access_control` — authorized token hashes and roles  
-- `threat_cache` — local threat indicators (IPs, hashes, etc.)  
-- `hardware_state` — temperature and compressor ledger with watchdog flags  
-- `system_audit` — authentication, manifest, and watchdog events  
-
-**Integrity pipeline**
-
-1. Load `aegis_manifest.json` and verify HMAC signature.  
-2. Compare SHA-256 of each listed file to the manifest.  
-3. On mismatch: restore from `.aegis_backup/`, write audit records, engage **network lockdown**.  
+**DuckDB tables:** `access_control`, `threat_cache`, `hardware_state`, `system_audit`
 
 ---
 
 ## Security hardening checklist
 
-- Replace default manifest HMAC key via `AEGIS_MANIFEST_HMAC_KEY`.  
-- Provision unique operator tokens with `register_operator_token`; store plaintext tokens only in a secure vault.  
-- Run the gateway as a dedicated system user with minimal filesystem permissions.  
-- Schedule `run_integrity_check()` from systemd or cron after updates.  
-- Keep `.aegis_backup/` read-only to the service account after snapshots.  
+- Set `AEGIS_MANIFEST_HMAC_KEY` in production (not the dev default).
+- Protect `.aegis_operator_token`; rotate with `aegisgrid token create`.
+- Run as a dedicated OS user with minimal permissions.
+- Schedule `aegisgrid integrity check` after updates (cron/systemd).
+- Keep physical thermal hardware interlocks on real appliances.
 
 ---
 
 ## Testing
 
 ```bash
-pytest -q
+python3 -m pytest -q
 ```
-
-Tests cover authentication, injection-style temperature attacks, DuckDB threat queries, manifest tamper rollback, and network lockdown behavior.
 
 ---
 
-## Troubleshooting & logs
+## Troubleshooting
 
-Enable structured logging:
-
-```python
-from core import configure_logging
-import logging
-
-configure_logging(logging.DEBUG)
-```
-
-| Symptom | Likely cause | Action |
-|---------|----------------|--------|
-| `AccessDeniedError` | Invalid or unregistered token | Register token or rotate credentials in `access_control` |
-| `watchdog_override` in audit log | Temperature outside 1°C–8°C | Inspect sensor calibration and physical door seals |
-| `NetworkLockdownError` | Manifest tamper or failed rollback | Verify `aegis_manifest.json`, restore from `.aegis_backup/`, fix HMAC key mismatch |
-| DuckDB locked errors | Multiple processes opening DB | Single-instance lock via systemd `ExecStart` |
-
-Audit rows are stored in `system_audit`; hardware history in `hardware_state`. Query with DuckDB CLI:
+| Symptom | Action |
+|---------|--------|
+| `AccessDeniedError` | Run `aegisgrid init` or pass a valid `--token` |
+| Watchdog override in logs | Temperature was outside 1°C–8°C |
+| `NetworkLockdownError` | Tamper detected — fix files/manifest/HMAC key |
+| DuckDB locked | Only one process should open the DB |
 
 ```bash
 duckdb aegis_local.duckdb "SELECT * FROM system_audit ORDER BY id DESC LIMIT 20;"
@@ -176,20 +173,17 @@ duckdb aegis_local.duckdb "SELECT * FROM system_audit ORDER BY id DESC LIMIT 20;
 
 ## FAQ
 
-**Does AegisGrid require internet or AI services?**  
-No. All logic, threat storage, and verification run locally. Optional network use is application-defined; AegisGrid can block socket creation when lockdown is active.
+**Is it really free?**  
+Yes. [MIT License](LICENSE) — use, modify, and share at no cost.
 
-**What happens if software tries to set −10°C or 25°C?**  
-The watchdog model clamps the recorded temperature to **1°C** or **8°C** respectively and forces the compressor to the configured safe default (`WATCHDOG_SAFE_COMPRESSOR_ON`), regardless of whether the command was authorized or injected.
+**Does it stop hackers?**  
+No software can promise that. AegisGrid adds **local** controls and tamper response patterns; you still must harden the OS, network, and physical access.
 
-**Can I update application files safely?**  
-Yes. Update files, regenerate SHA-256 entries, sign the manifest payload with your HMAC key, deploy `aegis_manifest.json`, and call `run_integrity_check()`. Snapshots in `.aegis_backup/` enable rollback if verification fails.
+**Does it need internet or AI?**  
+No.
 
-**Where is the database file?**  
-By default, `aegis_local.duckdb` in the `root_dir` passed to `AegisGrid` (current working directory if omitted).
-
-**Is this a substitute for physical safety hardware?**  
-AegisGrid includes a **software model** of a watchdog circuit suitable for integration testing and gateway policy. Production appliances should still use certified thermal switches and independent hardware interlocks as required by your safety standards.
+**Is it safety-certified?**  
+No. See [DISCLAIMER.md](DISCLAIMER.md).
 
 ---
 
@@ -197,6 +191,6 @@ AegisGrid includes a **software model** of a watchdog circuit suitable for integ
 
 Copyright (c) 2026 [tgollogly](https://github.com/tgollogly).
 
-AegisGrid is released under the **[MIT License](LICENSE)**. You may use, modify, and distribute the software subject to that license.
+**[MIT License](LICENSE)** — free to use with attribution and licence text.
 
-**Important:** The [Legal disclaimer](DISCLAIMER.md) applies to safety-critical and security-sensitive deployments. The MIT License does not replace your obligation to validate hardware interlocks, regulatory compliance, and operational procedures on target equipment.
+**[Legal disclaimer](DISCLAIMER.md)** — required reading for safety- or security-sensitive deployments.

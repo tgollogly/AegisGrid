@@ -688,6 +688,12 @@ class AegisGrid:
     def generate_token(length: int = 32) -> str:
         return secrets.token_urlsafe(length)
 
+    def __enter__(self) -> AegisGrid:
+        return self
+
+    def __exit__(self, exc_type: object, exc: object, tb: object) -> None:
+        self.close()
+
 
 def configure_logging(level: int = logging.INFO) -> None:
     logging.basicConfig(
