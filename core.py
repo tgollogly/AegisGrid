@@ -1,6 +1,9 @@
 """
 AegisGrid — local IoT refrigeration control, threat intelligence, and audit core.
 
+Created voluntarily and released free (MIT) to help small sites defend cold-chain
+gateways with offline-first audit and integrity patterns. See WHY.md.
+
 Copyright (c) 2026 tgollogly. SPDX-License-Identifier: MIT.
 See LICENSE and DISCLAIMER.md.
 

@@ -1,6 +1,6 @@
 # Quick start (about 5 minutes)
 
-AegisGrid is **free and open source** ([MIT License](LICENSE)). It helps you experiment with **local** refrigeration/IoT gateway patterns: access control, temperature safety bounds, audit logs, and file integrity checks. It is a **reference implementation** — not certified safety hardware. Read the [Legal disclaimer](DISCLAIMER.md) before production use.
+AegisGrid is **free and open source** ([MIT License](LICENSE)), built **voluntarily** to help with **local** cold-chain and refrigeration **gateway** security — see **[WHY.md](WHY.md)**. It provides access control, temperature safety bounds, audit logs, and file integrity checks. It is a **reference implementation**, not certified safety hardware. Read [DISCLAIMER.md](DISCLAIMER.md) before production use.
 
 ## 1. Install
 
@@ -81,4 +81,4 @@ aegisgrid --help
 aegisgrid temperature set --help
 ```
 
-More detail: [README.md](README.md) · LinkedIn banner: [assets/aegisgrid-hero-banner.jpg](assets/aegisgrid-hero-banner.jpg) · Tests: `python3 -m pytest -q`
+More detail: [README.md](README.md) · [WHY.md](WHY.md) · Tests: `python3 -m pytest -q`

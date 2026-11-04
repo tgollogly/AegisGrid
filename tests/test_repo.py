@@ -6,8 +6,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 REQUIRED_PATHS = (
     "README.md",
+    "WHY.md",
     "QUICKSTART.md",
-    "LINKEDIN.md",
     "LICENSE",
     "DISCLAIMER.md",
     "core.py",
