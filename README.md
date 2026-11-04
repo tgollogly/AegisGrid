@@ -144,6 +144,8 @@ AegisGrid uses a **local trust boundary**: the gateway hosts policy and data. Wh
 python3 -m pytest -q
 ```
 
+**20 tests** — core security behaviour, CLI, smoke flow, and repo consistency (including diagram assets).
+
 CI runs the same suite on Python 3.11 and 3.12 (see [.github/workflows/ci.yml](.github/workflows/ci.yml)).
 
 ---
