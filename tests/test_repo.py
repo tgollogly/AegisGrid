@@ -28,6 +28,11 @@ def test_hero_banner_not_empty():
     hero = ROOT / "assets/aegisgrid-hero-banner.jpg"
     assert hero.stat().st_size > 10_000
 
+
+def test_no_linkedin_marketing_file_in_repo():
+    assert not (ROOT / "LINKEDIN.md").exists()
+
+
 def test_readme_embeds_hero():
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     assert "assets/aegisgrid-hero-banner.jpg" in readme
