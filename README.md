@@ -1,19 +1,21 @@
-
 ![AegisGrid Hero Banner — free MIT open source local IoT refrigeration control](assets/aegisgrid-hero-banner.jpg)
 
 # AegisGrid
 
-**Hero banner (LinkedIn & docs):** [`assets/aegisgrid-hero-banner.jpg`](assets/aegisgrid-hero-banner.jpg) · Guide: [`LINKEDIN.md`](LINKEDIN.md) · Assets: [`assets/README.md`](assets/README.md)
+[![CI](https://github.com/tgollogly/AegisGrid/actions/workflows/ci.yml/badge.svg)](https://github.com/tgollogly/AegisGrid/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 
-**Free, open-source (MIT)** local control and audit patterns for IoT refrigeration gateways — DuckDB storage, operator tokens, temperature safety bounds, and signed file integrity. **No cloud AI. No paid tier. No account required.**
+**Free, open-source (MIT)** local control and audit for IoT refrigeration gateways — DuckDB storage, operator tokens, temperature safety bounds, and signed file integrity. **No cloud AI · no paid tier · no account.**
 
 | | |
 |---|---|
-| **New here?** | Start with **[QUICKSTART.md](QUICKSTART.md)** (~5 min) |
-| **Sharing the project?** | See **[LINKEDIN.md](LINKEDIN.md)** (accurate wording + disclaimer links) |
+| **Start here** | **[QUICKSTART.md](QUICKSTART.md)** (~5 min) |
+| **LinkedIn post** | **[LINKEDIN.md](LINKEDIN.md)** + [hero banner](assets/aegisgrid-hero-banner.jpg) |
+| **Brand assets** | **[assets/README.md](assets/README.md)** |
 | **Legal** | [LICENSE](LICENSE) · [DISCLAIMER.md](DISCLAIMER.md) |
 
-> **Honest scope:** AegisGrid is a **reference implementation** with automated tests. It **helps** with local access control, auditing, and tamper response modelling; it does **not** guarantee that attackers cannot compromise your systems, and it is **not** a substitute for certified hardware safety or professional engineering sign-off.
+> **Honest scope:** Reference implementation with automated tests. Helps with **local** access control, auditing, and tamper-response **modelling** — not a guarantee against attackers, and **not** a substitute for certified hardware safety or professional sign-off.
 
 ---
 
@@ -65,7 +67,7 @@ aegisgrid threat add --indicator 203.0.113.1 --type blocked_ip --severity 7
 aegisgrid threat list
 ```
 
-Try the guided demo:
+Guided demo (uses a temporary directory):
 
 ```bash
 bash examples/first_run.sh
@@ -104,11 +106,13 @@ Global option: `--root /path/to/appliance` (default: current directory).
 aegisgrid --help
 ```
 
+If `aegisgrid` is not found after install, use `python3 -m cli` with the same arguments (e.g. `python3 -m cli init`).
+
 ---
 
 ## Architecture overview
 
-AegisGrid uses a **local trust boundary**: the gateway hosts policy and data. When integrity verification fails, networking ** fails closed** (new sockets blocked).
+AegisGrid uses a **local trust boundary**: the gateway hosts policy and data. When integrity verification fails, networking **fails closed** (new sockets blocked).
 
 ```mermaid
 flowchart TB
@@ -149,12 +153,15 @@ flowchart TB
 python3 -m pytest -q
 ```
 
+CI runs the same suite on Python 3.11 and 3.12 (see [.github/workflows/ci.yml](.github/workflows/ci.yml)).
+
 ---
 
 ## Troubleshooting
 
 | Symptom | Action |
 |---------|--------|
+| `aegisgrid: command not found` | Run `pip install -e .` or use `python3 -m cli` |
 | `AccessDeniedError` | Run `aegisgrid init` or pass a valid `--token` |
 | Watchdog override in logs | Temperature was outside 1°C–8°C |
 | `NetworkLockdownError` | Tamper detected — fix files/manifest/HMAC key |
