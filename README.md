@@ -191,6 +191,6 @@ No. See [DISCLAIMER.md](DISCLAIMER.md).
 
 Copyright (c) 2026 [tgollogly](https://github.com/tgollogly).
 
-**[MIT License](LICENSE)** — free to use with attribution and licence text.
+AegisGrid is released under the **[MIT License](LICENSE)** — free to use, modify, and distribute with attribution and licence text.
 
-**[Legal disclaimer](DISCLAIMER.md)** — required reading for safety- or security-sensitive deployments.
+**Important:** The [Legal disclaimer](DISCLAIMER.md) applies to safety-critical and security-sensitive deployments. The MIT License does not replace your obligation to validate hardware interlocks, regulatory compliance, and operational procedures on target equipment.
