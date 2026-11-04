@@ -1,5 +1,6 @@
 """Repository consistency checks."""
 
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -46,3 +47,8 @@ def test_readme_embeds_architecture_diagram():
     assert "assets/aegisgrid-architecture.png" in readme
     png = ROOT / "assets/aegisgrid-architecture.png"
     assert png.is_file() and png.stat().st_size > 5000
+
+
+def test_architecture_svg_is_valid_xml():
+    svg_path = ROOT / "assets/aegisgrid-architecture.svg"
+    ET.parse(svg_path)
