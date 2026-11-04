@@ -195,4 +195,8 @@ AegisGrid includes a **software model** of a watchdog circuit suitable for integ
 
 ## License
 
-Use and modify according to your organization’s policies. No warranty is implied; validate all safety limits on target hardware before production deployment.
+Copyright (c) 2026 [tgollogly](https://github.com/tgollogly).
+
+AegisGrid is released under the **[MIT License](LICENSE)**. You may use, modify, and distribute the software subject to that license.
+
+**Important:** The [Legal disclaimer](DISCLAIMER.md) applies to safety-critical and security-sensitive deployments. The MIT License does not replace your obligation to validate hardware interlocks, regulatory compliance, and operational procedures on target equipment.
