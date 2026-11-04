@@ -4,17 +4,16 @@ Use this page when you promote the repo. Keep claims **accurate** — that prote
 
 ## Hero image (LinkedIn)
 
-The README uses ASCII art only. For your post, use **`assets/`**:
+The same banner appears at the top of [README.md](README.md). Download or upload:
 
 | File | Use |
 |------|-----|
 | [`assets/aegisgrid-hero-banner.jpg`](assets/aegisgrid-hero-banner.jpg) | **AegisGrid Hero Banner** — upload to LinkedIn (~16:9) |
 | [`assets/aegisgrid-hero-banner.svg`](assets/aegisgrid-hero-banner.svg) | Editable source (Inkscape/Figma) |
 
-**LinkedIn steps:** New post → **Add a photo** → select **`aegisgrid-hero-banner.jpg`** → add caption + repo link.
+**LinkedIn:** New post → **Add a photo** → **`aegisgrid-hero-banner.jpg`** → caption + https://github.com/tgollogly/AegisGrid
 
-**On GitHub (after merge to `main`):**  
-https://github.com/tgollogly/AegisGrid/blob/main/assets/aegisgrid-hero-banner.jpg
+**Direct link:** https://github.com/tgollogly/AegisGrid/blob/main/assets/aegisgrid-hero-banner.jpg
 
 ## One-line pitch
 

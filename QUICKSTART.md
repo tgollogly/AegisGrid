@@ -81,4 +81,4 @@ aegisgrid --help
 aegisgrid temperature set --help
 ```
 
-More detail: [README.md](README.md) · Tests: `python3 -m pytest -q`
+More detail: [README.md](README.md) · LinkedIn banner: [assets/aegisgrid-hero-banner.jpg](assets/aegisgrid-hero-banner.jpg) · Tests: `python3 -m pytest -q`
