@@ -120,24 +120,31 @@ If `aegisgrid` is not found after install, use `python3 -m cli` with the same ar
 
 AegisGrid uses a **local trust boundary**: the gateway hosts policy and data. When integrity verification fails, networking **fails closed** (new sockets blocked).
 
+![AegisGrid architecture diagram — local zero-trust boundary](assets/aegisgrid-architecture.svg)
+
+<details>
+<summary>Mermaid source (for editors that render it)</summary>
+
 ```mermaid
 flowchart TB
     subgraph LocalBoundary["Zero-trust local boundary"]
-        UI[Operator / CLI]
-        AG[AegisGrid core]
-        WD[Hardware watchdog model]
-        DB[(DuckDB aegis_local.duckdb)]
-        MF[Signed manifest + backups]
-        NG[Network guard]
+        UI["Operator / CLI"]
+        AG["AegisGrid core"]
+        WD["Hardware watchdog"]
+        DB[("DuckDB aegis_local.duckdb")]
+        MF["Signed manifest + backups"]
+        NG["Network guard"]
     end
-    UI -->|SHA-256 token| AG
+    UI -->|"SHA-256 token"| AG
     AG --> WD
     AG --> DB
     AG --> MF
     MF -->|tamper| NG
-    NG -.->|blocks| Sockets[Socket creation]
-    WD -->|1°C–8°C clamp| Compressor[Compressor safe default]
+    NG -.->|blocks| Sockets["Socket creation"]
+    WD -->|"1-8C clamp"| Compressor["Compressor safe default"]
 ```
+
+</details>
 
 **DuckDB tables:** `access_control`, `threat_cache`, `hardware_state`, `system_audit`
 
