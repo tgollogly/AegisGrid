@@ -15,6 +15,7 @@ REQUIRED_PATHS = (
     "assets/aegisgrid-hero-banner.jpg",
     "assets/aegisgrid-hero-banner.svg",
     "assets/aegisgrid-architecture.svg",
+    "assets/aegisgrid-architecture.png",
     "assets/README.md",
     "examples/first_run.sh",
 )
@@ -42,5 +43,6 @@ def test_readme_embeds_hero():
 
 def test_readme_embeds_architecture_diagram():
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    assert "assets/aegisgrid-architecture.svg" in readme
-    assert (ROOT / "assets/aegisgrid-architecture.svg").is_file()
+    assert "assets/aegisgrid-architecture.png" in readme
+    png = ROOT / "assets/aegisgrid-architecture.png"
+    assert png.is_file() and png.stat().st_size > 5000
