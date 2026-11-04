@@ -8,14 +8,13 @@ The README uses ASCII art only. For your post, use **`assets/`**:
 
 | File | Use |
 |------|-----|
-| [`assets/aegisgrid-linkedin-hero.jpg`](assets/aegisgrid-linkedin-hero.jpg) | **Upload this** as the main image on LinkedIn (~16:9) |
-| [`assets/aegisgrid-linkedin-hero.svg`](assets/aegisgrid-linkedin-hero.svg) | Editable banner (export custom sizes from Inkscape/Figma) |
+| [`assets/aegisgrid-hero-banner.jpg`](assets/aegisgrid-hero-banner.jpg) | **AegisGrid Hero Banner** — upload to LinkedIn (~16:9) |
+| [`assets/aegisgrid-hero-banner.svg`](assets/aegisgrid-hero-banner.svg) | Editable source (Inkscape/Figma) |
 
-**LinkedIn steps:** New post → **Add a photo** → select `aegisgrid-linkedin-hero.jpg` → add caption + link to the repo.
+**LinkedIn steps:** New post → **Add a photo** → select **`aegisgrid-hero-banner.jpg`** → add caption + repo link.
 
-**Direct file on GitHub (after PR merge to `main`):**  
-https://github.com/tgollogly/AegisGrid/blob/main/assets/aegisgrid-linkedin-hero.jpg  
-(Right-click → *Save image* if you need a local copy.)
+**On GitHub (after merge to `main`):**  
+https://github.com/tgollogly/AegisGrid/blob/main/assets/aegisgrid-hero-banner.jpg
 
 ## One-line pitch
 
