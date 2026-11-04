@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+.venv/
+*.duckdb
+.aegis_backup/
+.pytest_cache/
