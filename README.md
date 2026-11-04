@@ -10,12 +10,18 @@
 
 | | |
 |---|---|
+| **Why this exists** | **[WHY.md](WHY.md)** — voluntary, free, cold-chain defence |
 | **Start here** | **[QUICKSTART.md](QUICKSTART.md)** (~5 min) |
-| **LinkedIn post** | **[LINKEDIN.md](LINKEDIN.md)** + [hero banner](assets/aegisgrid-hero-banner.jpg) |
-| **Brand assets** | **[assets/README.md](assets/README.md)** |
+| **Brand assets** | **[assets/README.md](assets/README.md)** · [hero banner](assets/aegisgrid-hero-banner.jpg) |
 | **Legal** | [LICENSE](LICENSE) · [DISCLAIMER.md](DISCLAIMER.md) |
 
 > **Honest scope:** Reference implementation with automated tests. Helps with **local** access control, auditing, and tamper-response **modelling** — not a guarantee against attackers, and **not** a substitute for certified hardware safety or professional sign-off.
+
+---
+
+## Why AegisGrid
+
+Created **voluntarily** and shared **free (MIT)** so small sites — shops, kitchens, labs — are not priced out of basic **refrigeration gateway** security. Food resilience depends on **cold storage**; connected chillers and monitors can be **misconfigured or targeted** like any other IoT/OT kit. AegisGrid offers **offline-first** patterns (tokens, audit, temperature bounds, integrity checks) you can study and adapt alongside real hardware safeguards. Full narrative: **[WHY.md](WHY.md)**.
 
 ---
 
