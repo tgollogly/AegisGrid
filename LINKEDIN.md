@@ -83,6 +83,38 @@ https://github.com/tgollogly/AegisGrid
 
 ---
 
+## Post — SEO + max hashtags (recommended for 9am)
+
+**Attach:** `assets/aegisgrid-hero-banner.jpg` · **Character budget:** LinkedIn allows **3,000** characters — this version uses SEO keywords in the **first lines** (before “see more”) and **40 hashtags** at the end.
+
+**Copy everything below the line into LinkedIn:**
+
+---
+
+**Free open-source cold-chain & IoT security — AegisGrid (MIT).** Voluntary project: **no payment to me**, **no sales**, built so **everyone** — not just big retailers — can harden **refrigeration gateways**.
+
+**Food security** and sensible **stockpiling** only help if **cold storage stays trustworthy**. Connected **fridge controllers**, shop chillers, and **IoT monitoring** sit on our **supply chain**; **ransomware**, tampering, and weak defaults on **OT/IoT** gear can silence alarms or skew temperatures. When chillers fail, **food spoils** — and **enterprise cybersecurity** is out of reach for many **small businesses** and community kitchens.
+
+I released **AegisGrid** on **GitHub** in my own time, **voluntarily**:
+
+• **Offline-first** local control, audit & threat cache (**Python**, **DuckDB**)  
+• **IoT refrigeration** — SHA-256 operator tokens, audit logs  
+• **Temperature safety** model (1°C–8°C band)  
+• **Integrity checks** — signed manifests, rollback, lockdown on tamper  
+• **No cloud AI** — edge / gateway deployment  
+
+Tested **reference implementation** — not certified safety hardware, not “unhackable” — **defensive security** patterns you can **learn, review, and adapt** alongside physical safeguards.
+
+**Goal:** help **defend each other** with tools we can actually afford. **QUICKSTART (~5 min)** in the repo:
+
+https://github.com/tgollogly/AegisGrid
+
+Software provided **“as is”** · Disclaimer & MIT Licence in the repository.
+
+#OpenSource #FreeSoftware #MIT #OpenSourceSecurity #CyberSecurity #InfoSec #DefensiveSecurity #CyberDefence #IoT #IIoT #IoTSecurity #OTSecurity #OperationalTechnology #ICS #SCADA #EdgeComputing #LocalFirst #ZeroTrust #FoodSecurity #FoodSafety #ColdChain #Refrigeration #SupplyChain #SupplyChainSecurity #Resilience #CriticalInfrastructure #TechForGood #PublicGood #Python #DuckDB #GitHub #BuildInPublic #LearnInPublic #UKTech #UnitedKingdom #SmallBusiness #SME #Community #RansomwareAwareness #EmbeddedSystems #HomeLab #GitHubRepo #SoftwareEngineering #InfosecCommunity #SecureByDesign #DevSecOps #CyberAwareness #OpenSourceCommunity #RetailTech #HACCP #RiskManagement #SelfHosted #Linux #Engineering #Infrastructure #DigitalResilience #UK #OpenUK #TechCommunity #Volunteer #Unpaid #Portfolio #Developer #Coding #Automation #Monitoring #AccessControl #Audit #TamperDetection #FileIntegrity #Gateway #Appliance #SmartDevices #ConnectedDevices
+
+---
+
 ### Tone check before you post
 
 | OK to say | Avoid |
