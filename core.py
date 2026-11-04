@@ -1,6 +1,9 @@
 """
 AegisGrid — local IoT refrigeration control, threat intelligence, and audit core.
 
+Copyright (c) 2026 tgollogly. SPDX-License-Identifier: MIT.
+See LICENSE and DISCLAIMER.md.
+
 All state is persisted in DuckDB. Network egress is gated by an explicit lockdown flag
 that rejects socket creation when tamper or manifest verification fails.
 """
