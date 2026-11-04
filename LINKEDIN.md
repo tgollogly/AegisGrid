@@ -2,6 +2,21 @@
 
 Use this page when you promote the repo. Keep claims **accurate** — that protects you and sets the right expectations for readers.
 
+## Hero image (LinkedIn)
+
+The README uses ASCII art only. For your post, use **`assets/`**:
+
+| File | Use |
+|------|-----|
+| [`assets/aegisgrid-linkedin-hero.jpg`](assets/aegisgrid-linkedin-hero.jpg) | **Upload this** as the main image on LinkedIn (~16:9) |
+| [`assets/aegisgrid-linkedin-hero.svg`](assets/aegisgrid-linkedin-hero.svg) | Editable banner (export custom sizes from Inkscape/Figma) |
+
+**LinkedIn steps:** New post → **Add a photo** → select `aegisgrid-linkedin-hero.jpg` → add caption + link to the repo.
+
+**Direct file on GitHub (after PR merge to `main`):**  
+https://github.com/tgollogly/AegisGrid/blob/main/assets/aegisgrid-linkedin-hero.jpg  
+(Right-click → *Save image* if you need a local copy.)
+
 ## One-line pitch
 
 **Free, MIT-licensed open source for local IoT refrigeration gateways** — access control, temperature safety bounds, audit logs, and file integrity checks, with **no cloud AI required**.
