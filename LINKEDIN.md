@@ -21,19 +21,43 @@ The same banner appears at the top of [README.md](README.md). Download or upload
 
 ## Suggested LinkedIn post (copy and edit)
 
-I've published **AegisGrid** on GitHub — **free under the MIT Licence**, no signup or paid tier.
+**Attach:** `assets/aegisgrid-hero-banner.jpg` · **Link in post:** https://github.com/tgollogly/AegisGrid
 
-It's a **reference project** for teams who need **offline-first** patterns on small refrigeration/IoT gateways: hashed operator tokens, DuckDB audit/threat cache, 1°C–8°C software watchdog modelling, and signed manifest checks with rollback if files are tampered with.
+---
 
-**Why I'm sharing it:** Useful building blocks shouldn't be locked behind expensive platforms. This is for learning, adaptation, and community review — **not** a certified safety product.
+I’ve published **AegisGrid** on GitHub — **100% free, MIT Licence**, no signup, no paid tier, **no income from this project**.
 
-**Get started in ~5 minutes:** see QUICKSTART.md in the repo.
+I built and shared this **voluntarily**, in my own time, as a **public reference** for anyone running small refrigeration or IoT gateways who needs **offline-first** ideas: operator tokens (hashed), local audit logs, a simple temperature safety band (1°C–8°C model), and signed file checks with rollback if something’s tampered with. **No cloud AI** — runs locally.
 
-Repo: https://github.com/tgollogly/AegisGrid
+**Why I did it:** I’m tired of seeing useful security and safety patterns locked behind expensive kit. I also **don’t like abuse of connected systems** — this is my small, practical contribution so shops, labs, and tinkerers can **learn and adapt** something honest and testable. It is **not** a certified safety product and it **doesn’t** “stop all hackers” — it **raises the bar for local control and audit** if you implement it properly alongside real hardware safeguards.
 
-Licence: MIT · Disclaimer: see DISCLAIMER.md in the repo · Software provided **"as is"** without warranty.
+**Start in ~5 minutes:** QUICKSTART.md in the repo.
 
-#OpenSource #IoT #CyberSecurity #Python #UKTech
+https://github.com/tgollogly/AegisGrid
+
+Software provided **“as is”** · Disclaimer in the repo · Licence: MIT
+
+#OpenSource #IoT #CyberSecurity #Python #UKTech #FreeSoftware
+
+---
+
+### Shorter version (if character limit bites)
+
+**AegisGrid** — free MIT open source I released **voluntarily** (no payment, no product sales): local IoT/fridge gateway patterns — tokens, audit, temperature bounds, tamper checks. Shared so others aren’t priced out of basic security ideas. Not “unhackable”; a **reference** to learn from. QUICKSTART on GitHub:
+
+https://github.com/tgollogly/AegisGrid
+
+#OpenSource #IoT #CyberSecurity #Python
+
+## Voluntary / benefits-friendly wording (UK)
+
+This post is written to show:
+
+- **Unpaid** voluntary open-source contribution  
+- **No** paid service, **no** guaranteed security outcomes  
+- **Free** licence (MIT) for anyone to use  
+
+That is normal portfolio and community activity. **If you receive any money** from this work later (sponsorship, freelance, grants), report it under your benefit rules. This file is **not** DWP or legal advice — ask your work coach if you want confirmation for your situation.
 
 ## What **not** to claim
 
