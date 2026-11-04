@@ -10,6 +10,8 @@
 
 # AegisGrid
 
+**LinkedIn hero image:** [`assets/aegisgrid-linkedin-hero.jpg`](assets/aegisgrid-linkedin-hero.jpg) · Posting guide: [`LINKEDIN.md`](LINKEDIN.md)
+
 **Free, open-source (MIT)** local control and audit patterns for IoT refrigeration gateways — DuckDB storage, operator tokens, temperature safety bounds, and signed file integrity. **No cloud AI. No paid tier. No account required.**
 
 | | |

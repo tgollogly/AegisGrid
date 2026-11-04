@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="627" viewBox="0 0 1200 627" role="img" aria-labelledby="title desc">
+  <title id="title">AegisGrid LinkedIn hero banner</title>
+  <desc id="desc">Free MIT open source local IoT refrigeration control</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1628"/>
+      <stop offset="55%" style="stop-color:#0d3d56"/>
+      <stop offset="100%" style="stop-color:#062a2e"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="627" fill="url(#bg)"/>
+  <rect width="1200" height="627" fill="url(#grid)"/>
+  <path d="M120 120 L200 80 L280 120 L280 220 L200 260 L120 220 Z" fill="none" stroke="#5eead4" stroke-width="4" opacity="0.85"/>
+  <path d="M155 175 L200 150 L245 175 L245 215 L200 240 L155 215 Z" fill="#14b8a6" fill-opacity="0.25"/>
+  <text x="340" y="260" fill="#ffffff" font-family="system-ui,Segoe UI,Helvetica,Arial,sans-serif" font-size="88" font-weight="700">AegisGrid</text>
+  <text x="345" y="320" fill="#99f6e4" font-family="system-ui,Segoe UI,Helvetica,Arial,sans-serif" font-size="32" font-weight="500">Local IoT refrigeration control &amp; audit</text>
+  <rect x="345" y="360" width="520" height="44" rx="8" fill="#ffffff" fill-opacity="0.12"/>
+  <text x="365" y="392" fill="#e0f2fe" font-family="system-ui,Segoe UI,Helvetica,Arial,sans-serif" font-size="22" font-weight="600" letter-spacing="2">FREE  ·  MIT LICENSE  ·  OFFLINE-FIRST</text>
+  <text x="345" y="460" fill="#94a3b8" font-family="system-ui,Segoe UI,Helvetica,Arial,sans-serif" font-size="20">github.com/tgollogly/AegisGrid</text>
+</svg>
