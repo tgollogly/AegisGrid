@@ -1,12 +1,12 @@
 # Why AegisGrid exists
 
-AegisGrid was created **voluntarily** by [tgollogly](https://github.com/tgollogly) and released **free under the MIT Licence**. There is **no paid product**, **no subscription**, and **no income** from this repository.
+AegisGrid was created voluntarily by [tgollogly](https://github.com/tgollogly) and released under the MIT Licence for study and adaptation.
 
 ## The problem
 
 Food safety and personal resilience both depend on **cold storage working correctly**. Shops, community kitchens, labs, and connected **refrigeration gateways** are part of everyday life — and they are increasingly **network-connected**. When monitoring fails because of misconfiguration, tampering, or **cyber incidents** affecting operational or IoT kit, **temperature drift and spoilage** hurt small operators and households alike, not only large retailers.
 
-**Enterprise security platforms are expensive.** Basic patterns — access control, audit trails, bounds checking, and software integrity — should not be locked behind price tags only big chains can afford.
+Basic patterns — access control, audit trails, bounds checking, and software integrity — should be available to learn from and adapt, not only in large organisations.
 
 ## What AegisGrid is
 
@@ -30,7 +30,7 @@ See [DISCLAIMER.md](DISCLAIMER.md).
 
 ## Who it is for
 
-Anyone who wants **testable building blocks** to learn from or adapt on **small refrigeration / IoT gateways** — especially teams and individuals who need **defensive**, **local** tooling without enterprise budgets.
+Anyone who wants **testable building blocks** to learn from or adapt on **small refrigeration / IoT gateways** — especially people who want defensive, local tooling they can review themselves.
 
 **Goal:** help communities **defend what they rely on** with honest, reviewable code — and invite improvements via open source.
 

@@ -1,5 +1,17 @@
 # Freezer hack simulation (localhost)
 
+## Legal disclaimer
+
+This repository includes a **software simulation** and an **untested concept** for learning and research only. It is **not** a certified safety or security device. **Do not** connect it to real refrigeration controllers, food storage, or any safety-critical or live equipment.
+
+Nothing is unhackable, and no protection is guaranteed. The software is provided **as is**, with **no warranty**, under the [MIT licence](../../LICENSE). The author accepts **no liability** for any loss, damage, food spoilage, or harm arising from its use or misuse.
+
+Users are responsible for following applicable laws, food-safety rules, and manufacturer guidance. Product and trademark names mentioned in this repository belong to their owners; there is no affiliation, endorsement, or official connection.
+
+See also [DISCLAIMER.md](../../DISCLAIMER.md).
+
+---
+
 Toy Python simulation of a supermarket-style freezer controller on **127.0.0.1**, a weak default password, an attacker-style script built into `simulation.py`, and a **guard proxy** that enforces a staff token, freezer temperature bounds **−25 °C to −15 °C**, trip behaviour, and a simulated SMS log line.
 
 It illustrates the pattern behind AegisGrid (tokens, bounds, fail-closed) without using the DuckDB engine in `core.py`.
