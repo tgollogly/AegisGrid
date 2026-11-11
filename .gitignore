@@ -8,3 +8,6 @@ __pycache__/
 *.egg-info/
 dist/
 build/
+examples/freezer_hack_sim/results.png
+examples/freezer_hack_sim/results.txt
+examples/freezer_hack_sim/results.json
