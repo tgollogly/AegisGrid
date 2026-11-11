@@ -81,6 +81,43 @@ bash examples/first_run.sh
 
 Full walkthrough: **[QUICKSTART.md](QUICKSTART.md)**
 
+---
+
+## Freezer hack demo (simulation)
+
+A **localhost-only** Python demo under [`examples/freezer_hack_sim/`](examples/freezer_hack_sim/) models weak default credentials on an exposed freezer controller, attacker-style commands (50 °C setpoint + long forced defrost), and a **guard proxy** with staff token, bounds **−25 °C to −15 °C**, trip, and a simulated SMS log line. It echoes AegisGrid’s token and temperature-limit ideas without the DuckDB engine.
+
+Background: in Oct–Nov 2026, reports described internet-exposed supermarket refrigeration controllers in Europe targeted via default passwords and forced defrost toward ~50 °C ([BBC](https://www.bbc.com/news/articles/cq1kd1nee80eo)).
+
+**Run (optional chart output needs matplotlib):**
+
+```bash
+pip install matplotlib
+python -m examples.freezer_hack_sim.simulation
+```
+
+**Run tests (no matplotlib, no network):**
+
+```bash
+python -m pytest tests/test_freezer_hack_sim.py -q
+```
+
+### Results table (simulation)
+
+| Attack / test | Blocked or allowed | What happened |
+|---------------|-------------------|---------------|
+| A: default password, **no guard** | **Allowed** | Attack succeeds; peak **50 °C**; food-risk (above 0 °C) near minute **20** |
+| A: forced defrost 50 °C, no guard | **Allowed** | Freezer ends at **50 °C** after 90 simulated minutes |
+| B: hit controller directly | **Blocked** | HTTP 403 — controller not exposed past the guard |
+| B: default password via proxy | **Blocked** | HTTP 401 — no staff token |
+| B: stolen token, set 50 °C | **Blocked** | Trip + simulated SMS; freezer keeps cooling |
+| B: staff token, set −18 °C | **Allowed** | Legitimate setpoint inside band |
+| B: after trip | **Still cooling** | Peak and final temp stay within safe freezer band |
+
+![Freezer hack simulation chart — no guard vs guard box](assets/freezer-hack-sim-results.png)
+
+> **Simulation only** — not real Danfoss hardware, not a real OT protocol, and **not** proof of real-world security. See [`examples/freezer_hack_sim/README.md`](examples/freezer_hack_sim/README.md). For a **no-solder Pi gateway concept** (untested), see [`docs/BUILD_GUIDE.md`](docs/BUILD_GUIDE.md).
+
 ### Quick start (Python API)
 
 ```python
@@ -144,7 +181,7 @@ AegisGrid uses a **local trust boundary**: the gateway hosts policy and data. Wh
 python3 -m pytest -q
 ```
 
-**20 tests** — core security behaviour, CLI, smoke flow, and repo consistency (including diagram assets).
+**30 tests** — core security behaviour, CLI, smoke flow, repo consistency, and the localhost freezer hack simulation.
 
 CI runs the same suite on Python 3.11 and 3.12 (see [.github/workflows/ci.yml](.github/workflows/ci.yml)).
 
