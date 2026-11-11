@@ -1,5 +1,7 @@
 # Untested concept: no-solder Raspberry Pi gateway
 
+> **Disclaimer:** This is a software simulation and untested concept for learning and research only. It is not a certified safety or security device. Do not connect it to real refrigeration controllers, food storage, or any safety-critical or live equipment. Nothing is unhackable and no protection is guaranteed. Provided as is, with no warranty, under the MIT licence; the author accepts no liability for any loss, damage, food spoilage, or harm from its use or misuse. Users are responsible for following laws, food-safety rules and manufacturer guidance. Trademarks and product names belong to their owners; there is no affiliation. See also [DISCLAIMER.md](../DISCLAIMER.md).
+
 **Status: untested concept only.** This note describes how someone might experiment with a **local** refrigeration gateway on spare hardware. It is **not** validated wiring, **not** a substitute for manufacturer documentation, and **not** suitable for a live freezer without professional review.
 
 > **Never test on a production freezer or connected cold room.** Use a spare controller, lab bench, or disconnected unit only.

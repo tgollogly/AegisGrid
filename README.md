@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 
-**Free, open-source (MIT)** local control and audit for IoT refrigeration gateways — DuckDB storage, operator tokens, temperature safety bounds, and signed file integrity. **No cloud AI · no paid tier · no account.**
+**Free, open-source (MIT)** local control and audit for IoT refrigeration gateways — DuckDB storage, operator tokens, temperature safety bounds, and signed file integrity. **No cloud AI · no accounts required.**
 
 | | |
 |---|---|
@@ -17,11 +17,21 @@
 
 > **Honest scope:** Reference implementation with automated tests. Helps with **local** access control, auditing, and tamper-response **modelling** — not a guarantee against attackers, and **not** a substitute for certified hardware safety or professional sign-off.
 
+## Legal disclaimer
+
+This repository includes a **software simulation** and an **untested concept** for learning and research only. It is **not** a certified safety or security device. **Do not** connect it to real refrigeration controllers, food storage, or any safety-critical or live equipment.
+
+Nothing is unhackable, and no protection is guaranteed. The software is provided **as is**, with **no warranty**, under the [MIT licence](LICENSE). The author accepts **no liability** for any loss, damage, food spoilage, or harm arising from its use or misuse.
+
+Users are responsible for following applicable laws, food-safety rules, and manufacturer guidance. Product and trademark names mentioned in this repository belong to their owners; there is no affiliation, endorsement, or official connection.
+
+See also [DISCLAIMER.md](DISCLAIMER.md).
+
 ---
 
 ## Why AegisGrid
 
-Created **voluntarily** and shared **free (MIT)** so small sites — shops, kitchens, labs — are not priced out of basic **refrigeration gateway** security. Food resilience depends on **cold storage**; connected chillers and monitors can be **misconfigured or targeted** like any other IoT/OT kit. AegisGrid offers **offline-first** patterns (tokens, audit, temperature bounds, integrity checks) you can study and adapt alongside real hardware safeguards. Full narrative: **[WHY.md](WHY.md)**.
+Created **voluntarily** and shared **free (MIT)** so small sites — shops, kitchens, labs — are not left without access to basic **refrigeration gateway** security. Food resilience depends on **cold storage**; connected chillers and monitors can be **misconfigured or targeted** like any other IoT/OT kit. AegisGrid offers **offline-first** patterns (tokens, audit, temperature bounds, integrity checks) you can study and adapt alongside real hardware safeguards. Full narrative: **[WHY.md](WHY.md)**.
 
 ---
 
@@ -118,6 +128,10 @@ python -m pytest tests/test_freezer_hack_sim.py -q
 
 > **Simulation only** — not real Danfoss hardware, not a real OT protocol, and **not** proof of real-world security. See [`examples/freezer_hack_sim/README.md`](examples/freezer_hack_sim/README.md). For a **no-solder Pi gateway concept** (untested), see [`docs/BUILD_GUIDE.md`](docs/BUILD_GUIDE.md).
 
+![Concept poster for the freezer hack simulation (illustration only, not a tested product)](assets/freezer-hack-sim-poster.jpg)
+
+*Concept poster (illustration only, not a tested product)*
+
 ### Quick start (Python API)
 
 ```python
@@ -206,7 +220,7 @@ duckdb aegis_local.duckdb "SELECT * FROM system_audit ORDER BY id DESC LIMIT 20;
 ## FAQ
 
 **Is it really free?**  
-Yes. [MIT License](LICENSE) — use, modify, and share at no cost.
+Yes. [MIT License](LICENSE) — use, modify, and share under the licence terms.
 
 **Does it stop hackers?**  
 No software can promise that. AegisGrid adds **local** controls and tamper response patterns; you still must harden the OS, network, and physical access.

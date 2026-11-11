@@ -2,6 +2,14 @@
 
 Copyright (c) 2026 **tgollogly**. All rights reserved where not expressly licensed under the [MIT License](LICENSE).
 
+## Simulation and untested concept
+
+This repository includes a **software simulation** and an **untested concept** for learning and research only. It is **not** a certified safety or security device. **Do not** connect it to real refrigeration controllers, food storage, or any safety-critical or live equipment.
+
+Nothing is unhackable, and no protection is guaranteed. The software is provided **as is**, with **no warranty**, under the [MIT licence](LICENSE). The author accepts **no liability** for any loss, damage, food spoilage, or harm arising from its use or misuse.
+
+Users are responsible for following applicable laws, food-safety rules, and manufacturer guidance. Product and trademark names mentioned in this repository belong to their owners; there is no affiliation, endorsement, or official connection.
+
 ## Not safety-certified equipment
 
 AegisGrid is **software** for local monitoring, access control, and policy enforcement on refrigeration gateways. It is **not** a substitute for certified thermal protection, electrical safety interlocks, fire suppression, or other hardware required by applicable standards (including food safety, electrical, and occupational health regulations in your jurisdiction).
@@ -18,6 +26,6 @@ No software can provide “absolute” protection against all attackers or misco
 
 ## Limitation of liability
 
-To the maximum extent permitted by applicable law, the copyright holder and contributors **shall not be liable** for any direct, indirect, incidental, special, consequential, or punitive damages, or for any loss of data, stock, revenue, or business, arising from the use or inability to use this software, even if advised of the possibility of such damages.
+To the maximum extent permitted by applicable law, the copyright holder and contributors **shall not be liable** for any direct, indirect, incidental, special, consequential, or punitive damages, or for any loss of data or stock, arising from the use or inability to use this software, even if advised of the possibility of such damages.
 
 Use of this software is at **your own risk**. See the MIT License for the full warranty disclaimer.
