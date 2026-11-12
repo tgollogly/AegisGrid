@@ -242,7 +242,7 @@ def write_chart(a, b, path):
         color="#555555",
         arrowprops=dict(arrowstyle="->", color="#888888"),
     )
-    ax.set_title("AegisGrid freezer hack simulation: freezer temperature over time")
+    ax.set_title("AegisGrid simulation: freezer temperature over time")
     ax.set_xlabel("Simulated time (minutes)")
     ax.set_ylabel("Freezer temperature (°C)")
     ax.set_xlim(0, DURATION_MIN - 1)
@@ -252,7 +252,7 @@ def write_chart(a, b, path):
     fig.text(
         0.5,
         0.01,
-        "Simulation only — not real Danfoss hardware, not a proof of real-world security.",
+        "Simulation only — not real Danfoss hardware, not a proof of real-world security.  © 2026 Thomas Gollogly. All rights reserved.",
         ha="center",
         fontsize=7,
         color="#555555",
