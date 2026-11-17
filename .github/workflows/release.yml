@@ -74,6 +74,12 @@ jobs:
             echo "No CHANGELOG section for ${VERSION}" >&2
             exit 1
           fi
+          {
+            echo '🔒 These files are sealed: SHA-256 checksums in SHA256SUMS.txt plus GitHub build attestations. See the README "Verify your download" section to check them.'
+            echo
+            cat release-notes.md
+          } > release-notes-tmp.md
+          mv release-notes-tmp.md release-notes.md
       - name: Create GitHub Release
         env:
           GH_TOKEN: ${{ github.token }}
